@@ -12,8 +12,8 @@ import (
 	"github.com/tidwall/sjson"
 )
 
-var scale_w = flag.Float64("scaleWidht", 1.2, "Scale of widht")
-var scale_h = flag.Float64("scaleHeight", 1.2, "Scale of height")
+var scale_w = flag.Float64("scaleWidht", 1.0, "Scale of widht")
+var scale_h = flag.Float64("scaleHeight", 1.0, "Scale of height")
 
 // var scale_both = flag.Bool("scale both", true, "If true, scale w and h by w value")
 
