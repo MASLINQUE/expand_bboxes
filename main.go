@@ -20,6 +20,7 @@ var scale_h = flag.Float64("scaleHeight", 1.2, "Scale of height")
 func main() {
 
 	// open output file
+	flag.Parse()
 
 	// make a write buffer
 	logrus.SetLevel(logrus.DebugLevel)
@@ -56,7 +57,6 @@ func expand(reqdata []byte) {
 			bbox = append(bbox, value.Num)
 			return true
 		})
-
 
 		bbox_res := ResizeFromCenter(bbox, *scale_w, *scale_h)
 
