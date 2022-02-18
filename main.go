@@ -14,7 +14,7 @@ import (
 
 var scale_w = flag.Float64("sw", 1.0, "Scale of widht")
 var scale_h = flag.Float64("sh", 1.0, "Scale of height")
-var scale_both = flag.Bool("sb", true, "If true, scale w and h by w value")
+var scale_both = flag.Bool("sb", false, "If true, scale w and h by w value")
 
 func main() {
 
@@ -44,12 +44,10 @@ func expand(reqdata []byte) {
 		fmt.Println(string(reqdata))
 		return
 	}
-	itemsArray := []gjson.Result{}
-	itemsArray = append(itemsArray, items.Array()...)
 	responseStringArray := []string{}
 
 	// dets := [][]float64{}
-	for _, item := range itemsArray {
+	for _, item := range items.Array() {
 		item_str := item.String()
 		bbox := []float64{}
 		item.Get("bbox").ForEach(func(key, value gjson.Result) bool {
