@@ -3,7 +3,11 @@ package main
 import "math"
 
 //ResizeFromCenter resizes a bounding box by a scale factor from its center
-func ResizeFromCenter(bbox []float64, scale_w float64, scale_h float64) []float64 {
+func ResizeFromCenter(bbox []float64, scale_w float64, scale_h float64, scale_both bool) []float64 {
+
+	if scale_both {
+		scale_w = scale_h
+	}
 
 	if scale_h == 0 || scale_w == 0 {
 		return bbox

@@ -14,8 +14,7 @@ import (
 
 var scale_w = flag.Float64("scaleWidht", 1.0, "Scale of widht")
 var scale_h = flag.Float64("scaleHeight", 1.0, "Scale of height")
-
-// var scale_both = flag.Bool("scale both", true, "If true, scale w and h by w value")
+var scale_both = flag.Bool("scale both", true, "If true, scale w and h by w value")
 
 func main() {
 
@@ -58,7 +57,7 @@ func expand(reqdata []byte) {
 			return true
 		})
 
-		bbox_res := ResizeFromCenter(bbox, *scale_w, *scale_h)
+		bbox_res := ResizeFromCenter(bbox, *scale_w, *scale_h, *scale_both)
 
 		item_str, _ = sjson.Set(item_str, "bbox.0", toFixed(bbox_res[0], 3))
 		item_str, _ = sjson.Set(item_str, "bbox.1", toFixed(bbox_res[1], 3))
