@@ -23,8 +23,10 @@ func ResizeFromCenter(bbox []float64, scale_w float64, scale_h float64, scale_bo
 	bbox2 := make([]float64, 4)
 	bbox2[0] = math.Max(xc-dx, 0)
 	bbox2[1] = math.Max(yc-dy, 0)
-	bbox2[2] = math.Min(xc+dx-bbox2[0], 1)
-	bbox2[3] = math.Min(yc+dy-bbox2[1], 1)
+	x_max := math.Min(xc+dx, 1)
+	y_max:= math.Min(yc+dy, 1)
+	bbox2[2] = math.Min(x_max-bbox2[0], 1)
+	bbox2[3] = math.Min(y_max-bbox2[1], 1)
 
 	return bbox2
 }
