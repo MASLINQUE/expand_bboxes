@@ -24,9 +24,11 @@ func main() {
 	// make a write buffer
 	logrus.SetLevel(logrus.DebugLevel)
 	s := bufio.NewScanner(os.Stdin)
-	bufsize := 10 << 20
-	buf := make([]byte, bufsize)
-	s.Buffer(buf, bufsize)
+
+	// bufsize := 10 << 20
+	// buf := make([]byte, bufsize)
+
+	// s.Buffer(buf, bufsize)
 	for {
 		if s.Scan() {
 			reqdata := s.Bytes()
